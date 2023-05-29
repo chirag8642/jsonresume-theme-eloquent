@@ -453,6 +453,33 @@
               </ul>
             </div>
           {{/if}}
+          {{#if resume.achievements}}
+            <div class="detail" id="achievements">
+              <h3 class="text-uppercase">
+                <a class="anchor-link text-muted" href="#achievements">
+                  <i aria-hidden="true" class="icon-lg icon-trophy"></i> Achievements
+                  <span class="anchor-icon" aria-hidden="true"></span>
+                </a>
+              </h3>
+
+              <ul class="list-unstyled">
+                {{#each resume.achievements}}
+                  <li class="detail-item row" id="{{itemID 'award' @index ../resume.achievements.length}}">
+                    <div class="col-sm-9 detail-item-content">
+                      <a class="anchor-link item-anchor" href="#{{itemID 'award' @index ../resume.achievements.length}}">#</a>
+                      <h4 itemprop="award">
+                        <strong>{{title}}</strong>
+                        {{~#if awarder~}}
+                          ,&nbsp;<span>{{awarder}}</span>
+                        {{/if}}
+                      </h4>
+                      <p>{{nl2br summary}}</p>
+                    </div>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          {{/if}}
 
           {{#if resume.publications}}
             <div class="detail" id="publications">
